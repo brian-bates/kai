@@ -36,4 +36,5 @@ pip-log.txt
 *.swp
 MANIFEST
 
-
+# Autoenv
+.env
