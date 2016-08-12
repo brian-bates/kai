@@ -6,7 +6,7 @@ A Python package that gives you the power to extract any compressed file using t
 v0.0.1
 
 ### Installation
-```sh
+```shell
 pip install kai
 ```
 
@@ -29,5 +29,6 @@ Want to contribute? Great! Fork and submit a pull request!
     - Setup tox
     - Add setup.py
     - Setup Acceptance Tests
-    - Add License
-    - Write README
+    - ~~Add License~~
+    - ~~Add AUTHORS.md file~~
+    - Update README
