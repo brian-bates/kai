@@ -29,6 +29,4 @@ Want to contribute? Great! Fork and submit a pull request!
     - Setup tox
     - Add setup.py
     - Setup Acceptance Tests
-    - ~~Add License~~
-    - ~~Add AUTHORS.md file~~
     - Update README
