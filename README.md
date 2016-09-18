@@ -17,10 +17,8 @@ Want to contribute? Great! Fork and submit a pull request!
 ### Todos
 
  - Support binzip files
- - Support zip files
  - Support 7zip files
  - Support rar files
- - Support tar files
  - Setup Versioneer
  - Setup Travis CI
  - Add requirements.txt
