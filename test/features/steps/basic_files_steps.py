@@ -5,14 +5,14 @@ import zipfile
 
 from behave import given, when, then
 
-from kai.main import main
+from kai import extract
 
 
 def compute_hash(filename):
     """Returns the MD5 hash of the specified file"""
     with open(filename, 'r') as f:
         contents = f.read()
-        return hashlib.md5(contents)
+        return hashlib.md5(contents).digest()
 
 
 def create_dummy_file(filename='lorem-ipsum.txt', base_dir='.'):
@@ -22,19 +22,19 @@ def create_dummy_file(filename='lorem-ipsum.txt', base_dir='.'):
         f.write('Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
                 'sed do eiusmod tempor incididunt ut labore et dolore magna'
                 'aliqua.')
-    return path
+    return filename, path
 
 
 def _create_zip_archive(path, contents):
     with zipfile.ZipFile(path, 'w') as archive:
         for inner_file in contents:
-            archive.write(inner_file)
+            archive.write(inner_file, arcname=os.path.basename(inner_file))
 
 
 def _create_tar_archive(path, contents):
     with tarfile.open(path, 'w') as archive:
         for inner_file in contents:
-            archive.add(inner_file)
+            archive.add(inner_file, arcname=os.path.basename(inner_file))
 
 
 def create_archive(file_type, base_dir, contents):
@@ -56,7 +56,7 @@ def create_archive(file_type, base_dir, contents):
     return path
 
 
-@given('a file of type "{file_type}"')
+@given(u'a file of type "{file_type}"')
 def step_generate_test_archive(context, file_type):
     """Generate a dummy archive of the speficied type for testing
 
@@ -67,20 +67,24 @@ def step_generate_test_archive(context, file_type):
         context:   Behave's current testing context.
         file_type: The file extension for the type of archive to generate.
     """
-    inner_file = create_dummy_file(base_dir=context.test_dir)
-    context.expected_hash = {inner_file: compute_hash(inner_file)}
-    context.archive = create_archive(file_type, context.test_dir, [inner_file])
+    filename, path = create_dummy_file(base_dir=context.test_dir)
+    context.expected_hash = {filename: compute_hash(path)}
+    context.archive = create_archive(file_type, context.test_dir, [path])
 
 
-@when('a user invokes kai on the file')
+@when(u'a user invokes kai on the file')
 def step_invoke_kai(context):
     """Invokes kai on the archive provided in context"""
-    context.extracted_dir = main(cli_args=[context.archive])
+    context.extracted_dir = extract(context.archive, context.test_dir)
 
 
-@then('the file is extracted into the current directory')
+@then(u'the file is extracted into the specified directory')
 def step_verify_contents(context):
     extracted_files = os.listdir(context.extracted_dir)
     for filename in extracted_files:
-        assert context.expected_hash[filename] == compute_hash(filename), (
-            'Failure: Extracted files are different')
+        path = os.path.join(context.extracted_dir, filename)
+        expected = context.expected_hash[filename]
+        actual = compute_hash(path)
+        assert expected == actual, (
+            'Failure: Extracted files are different:'
+            '\nExpected {}\nReceived {}').format(expected, actual)
