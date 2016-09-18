@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-description=(
+description = (
     'A Python package that gives you the power to extract '
     'any compressed file using the same simple syntax.')
 
@@ -12,6 +12,7 @@ setup(
     author='Brian Bates',
     author_email='brian@eccentricprototypes.com',
     url='http://github.com/brian-bates/kai',
-    install_requires=[]
-    packages=find_packages()
+    install_requires=[],
+    packages=find_packages(),
+    entry_points={'console_scripts': ['kai = kai.kai:main']}
 )
