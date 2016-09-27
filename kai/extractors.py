@@ -3,6 +3,8 @@
 import os
 import tarfile
 import zipfile
+import rarfile
+
 
 
 class ExtractorError(Exception):
@@ -86,5 +88,16 @@ class ZipExtractor(Extractor):
     def extract(self):
         destination = self.strip_extension(self.filename, '.zip')
         with zipfile.ZipFile(self.filename, 'r') as archive:
+            archive.extractall(path=destination)
+        return destination
+
+
+class RarExtractor(Extractor):
+    """ Extracting RAR file """
+    supported_extensions = ['.rar']
+
+    def extract(self):
+        destination = self.strip_extension(self.filename, '.rar')
+        with rarfile.RarFile(self.filename, 'r') as archive:
             archive.extractall(path=destination)
         return destination
