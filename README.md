@@ -18,7 +18,6 @@ Want to contribute? Great! Fork and submit a pull request!
 
  - Support binzip files
  - Support 7zip files
- - Support rar files
  - Setup Versioneer
  - Setup Travis CI
  - Add requirements.txt
