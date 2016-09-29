@@ -1,8 +1,9 @@
+from __future__ import absolute_import
 from __future__ import print_function
 
 import argparse
 
-from extractors import ExtractorFactory
+from .extractors import ExtractorFactory
 
 
 def extract(filename, destination='.'):
