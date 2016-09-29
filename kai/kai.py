@@ -27,8 +27,8 @@ def main():
     Parses command line aruments and extracts a given archive accordingly
     """
     args = parse_arguments()
-    extract(args.filename, args.destination)
-    print 'Contents extracted to {}'.format(args.destination)
+    destination = extract(args.filename, args.destination)
+    print 'Contents extracted to {}'.format(destination)
 
 
 if __name__ == '__main__':

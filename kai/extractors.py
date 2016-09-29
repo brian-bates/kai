@@ -97,7 +97,9 @@ class RarExtractor(Extractor):
     supported_extensions = ['.rar']
 
     def extract(self):
-        destination = self.strip_extension(self.filename, '.rar')
+        extract_folder_name = os.path.basename(
+                self.strip_extension(self.filename, '.rar'))
+        destination = '{}{}'.format(self.destination, extract_folder_name)
         with rarfile.RarFile(self.filename, 'r') as archive:
             archive.extractall(path=destination)
         return destination
