@@ -12,7 +12,7 @@ setup(
     author='Brian Bates',
     author_email='brian@eccentricprototypes.com',
     url='http://github.com/brian-bates/kai',
-    install_requires=[],
+    install_requires=['rarfile'],
     packages=find_packages(),
     entry_points={'console_scripts': ['kai = kai.kai:main']}
 )
