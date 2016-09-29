@@ -1,10 +1,8 @@
 """A bunch of extractors go here"""
 
-import os
 import tarfile
 import zipfile
 import rarfile
-
 
 
 class ExtractorError(Exception):

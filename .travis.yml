@@ -6,7 +6,7 @@ install:
 - pip install . behave nose flake8
 script:
 - flake8
-- behave test/features/
+- behave tests/features/
 deploy:
   - provider: pypi
     user: brian-bates
