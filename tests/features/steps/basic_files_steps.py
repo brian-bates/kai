@@ -11,7 +11,7 @@ from kai import extract
 def compute_hash(filename):
     """Returns the MD5 hash of the specified file"""
     with open(filename, 'r') as f:
-        contents = f.read()
+        contents = f.read().encode('utf-8')
         return hashlib.md5(contents).digest()
 
 

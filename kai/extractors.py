@@ -69,7 +69,7 @@ class TarExtractor(Extractor):
             '.tar.bz2': 'r:bz2',
             '.tbz': 'r:bz2',
             '.tar': 'r:'}
-        for file_extension, mode in mode_map.iteritems():
+        for file_extension, mode in mode_map.items():
             if self.filename.endswith(file_extension):
                 destination = self.strip_extension(
                     self.filename, file_extension)
