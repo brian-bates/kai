@@ -8,22 +8,22 @@ script:
 - flake8
 - behave tests/features/
 deploy:
-  - provider: pypi
-    user: brian-bates
-    distributions: sdist bdist_wheel
-    password:
-      secure: Upv0tXehzXIVsXZ6ub5ARbI7nhORivMD0dy3mRvB8byfnF98mAYTHZGOV8OSftvCWV0G9s8Pect8J7qAjNrzBCPclbbNlGfqkys0AW9WXjD4EMWSLKe8tPE7NboBKFigsvACbN6ZW4G4oaEYHa1362oIBDwuK3MBJERhghc2TyEDhbelMrJVm2yxLv2BrnE8du55J8MmXnuO8goHKnOSNyq7/IOSU4As/5qGuTo96uJaOcaP2lDj3Mz1IIhMMCUIbCPStUPDQLjSN1Da9sA3FRQnkxMDyoPTxdrD/mTMs6ENd0t4Ddl8hyQ7S+ie8fJDMh9vfey0lN8+x2hMX7jRnbzQwbzW+tp/0WWGKZu1TTHqeT66J5nHQSFOCs1CcZbWft9cbk5pNJABOKauLGRlUZPPxq7Idwxl1pyVIkFo3De4MKm5Iujok+vc0oHvYOwXYkQCmKAdUbIvPTuCUnotEsuooth8pGH5ZC8uykjoALg28B2ZcZ0LIlsrjtPkklqiT1foaeCFjqC8B9cntR51KWR6jXdVvSKhAnbUglKB8KssHOy531zMf2j0KUy9j0++mydrXBxACFLAlTWKjwuza7Pvd/jDRNu4uXLpIKGsueaFwoMoyPoI+/nHFOocenullNFXRi7+RXB0e7eMwWTv1rK6mSuRXIo2SRYuIzHVF7Q=
-    on:
-      branch: master
-      tags: true
-      condition: $TRAVIS_PYTHON_VERSION = "2.7"
-  - provider: pypi
-    server: https://testpypi.python.org/pypi
-    user: brian-bates
-    distributions: sdist bdist_wheel
-    password:
-      secure: Upv0tXehzXIVsXZ6ub5ARbI7nhORivMD0dy3mRvB8byfnF98mAYTHZGOV8OSftvCWV0G9s8Pect8J7qAjNrzBCPclbbNlGfqkys0AW9WXjD4EMWSLKe8tPE7NboBKFigsvACbN6ZW4G4oaEYHa1362oIBDwuK3MBJERhghc2TyEDhbelMrJVm2yxLv2BrnE8du55J8MmXnuO8goHKnOSNyq7/IOSU4As/5qGuTo96uJaOcaP2lDj3Mz1IIhMMCUIbCPStUPDQLjSN1Da9sA3FRQnkxMDyoPTxdrD/mTMs6ENd0t4Ddl8hyQ7S+ie8fJDMh9vfey0lN8+x2hMX7jRnbzQwbzW+tp/0WWGKZu1TTHqeT66J5nHQSFOCs1CcZbWft9cbk5pNJABOKauLGRlUZPPxq7Idwxl1pyVIkFo3De4MKm5Iujok+vc0oHvYOwXYkQCmKAdUbIvPTuCUnotEsuooth8pGH5ZC8uykjoALg28B2ZcZ0LIlsrjtPkklqiT1foaeCFjqC8B9cntR51KWR6jXdVvSKhAnbUglKB8KssHOy531zMf2j0KUy9j0++mydrXBxACFLAlTWKjwuza7Pvd/jDRNu4uXLpIKGsueaFwoMoyPoI+/nHFOocenullNFXRi7+RXB0e7eMwWTv1rK6mSuRXIo2SRYuIzHVF7Q=
-    on:
-      branch: master
-      tags: true
-      condition: $TRAVIS_PYTHON_VERSION = "2.7"
+- provider: pypi
+  user: brian-bates
+  distributions: sdist bdist_wheel
+  password:
+    secure: Zl+6+CPTgggn96WT3LtTCYapAbEr64zasRhPIAun+8HnQQdtgTVAvkUPe/coooQEgY1+k7NSnVLpVWtOfuafzb5+ndb04N+flhEygHuJmKGKPIwlY/otUUsFHixTxLpQ0kdaXUzGt72SpSpr1BJ/jg23HkjqfnvXYo3BN+u6EY1BVFiiv2lhl0lJWzmgF7ykDVw+/I77LV2CSBTjk4RgSuthOxc5UOHmb3PrrOqIydZjuHdZl2jSc9X/V00EnL5IB+DF3KRaDYw7lUeXRYeB+sViiWu3ZlLOTP2j7mAZNQG/HymeYmEy3EbWMlT+OSTY9K057xkmi3g+tDPx3jH0628+NJaPJlmGBYXYtxZwTvPDZn60RG/+hoijUYrs6X7HP2oPzUSWK1xuGgifTW/xJESbJms+rLrnSfJOJ1vmAvOotbNF2GV5gxMp5Dt1F6Vel05NR2nQ/0/A5pw7Ls5/+DMPQ/HXUYsy/Hnueg4w/iAvjGDXv7LTVrjOwDZewokfab8ujLkz+SXFv0pzfUapNWOTO6WG+nf3KSJZ0277IJ38ZkHPAfy+K9NWV+sxHWrB2P0EO1CyPkDdQdsBMZjrJ05jVIVAfGrqMrprIvPw5pTPQxt4xw1FhsZ/TpdEvFjqhSp/4AE5OYYxPEq7iaXn6uIpRrMy4+h7wD1WC62VWxo=
+  on:
+    branch: master
+    tags: true
+    condition: $TRAVIS_PYTHON_VERSION = "2.7"
+- provider: pypi
+  server: https://testpypi.python.org/pypi
+  user: brian-bates
+  distributions: sdist bdist_wheel
+  password:
+    secure: Zl+6+CPTgggn96WT3LtTCYapAbEr64zasRhPIAun+8HnQQdtgTVAvkUPe/coooQEgY1+k7NSnVLpVWtOfuafzb5+ndb04N+flhEygHuJmKGKPIwlY/otUUsFHixTxLpQ0kdaXUzGt72SpSpr1BJ/jg23HkjqfnvXYo3BN+u6EY1BVFiiv2lhl0lJWzmgF7ykDVw+/I77LV2CSBTjk4RgSuthOxc5UOHmb3PrrOqIydZjuHdZl2jSc9X/V00EnL5IB+DF3KRaDYw7lUeXRYeB+sViiWu3ZlLOTP2j7mAZNQG/HymeYmEy3EbWMlT+OSTY9K057xkmi3g+tDPx3jH0628+NJaPJlmGBYXYtxZwTvPDZn60RG/+hoijUYrs6X7HP2oPzUSWK1xuGgifTW/xJESbJms+rLrnSfJOJ1vmAvOotbNF2GV5gxMp5Dt1F6Vel05NR2nQ/0/A5pw7Ls5/+DMPQ/HXUYsy/Hnueg4w/iAvjGDXv7LTVrjOwDZewokfab8ujLkz+SXFv0pzfUapNWOTO6WG+nf3KSJZ0277IJ38ZkHPAfy+K9NWV+sxHWrB2P0EO1CyPkDdQdsBMZjrJ05jVIVAfGrqMrprIvPw5pTPQxt4xw1FhsZ/TpdEvFjqhSp/4AE5OYYxPEq7iaXn6uIpRrMy4+h7wD1WC62VWxo=
+  on:
+    branch: master
+    tags: true
+    condition: $TRAVIS_PYTHON_VERSION = "2.7"
