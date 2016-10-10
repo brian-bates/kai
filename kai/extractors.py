@@ -1,4 +1,5 @@
 """A bunch of extractors go here"""
+import os
 
 import six
 import rarfile
