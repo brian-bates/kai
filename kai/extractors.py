@@ -1,4 +1,5 @@
 """A bunch of extractors go here"""
+import os
 
 import six
 import rarfile
@@ -56,7 +57,7 @@ class Extractor(object):
 
     @staticmethod
     def strip_extension(full_path, extension):
-        return full_path[:-len(extension)]
+        return os.path.basename(full_path[:-len(extension)])
 
 
 class TarExtractor(Extractor):
@@ -71,8 +72,9 @@ class TarExtractor(Extractor):
             '.tar': 'r:'}
         for file_extension, mode in mode_map.items():
             if self.filename.endswith(file_extension):
-                destination = self.strip_extension(
-                    self.filename, file_extension)
+                destination = '{}{}'.format(
+                    self.destination,
+                    self.strip_extension(self.filename, file_extension))
                 with tarfile.open(self.filename, mode) as archive:
                     archive.extractall(path=destination)
                 return destination
@@ -84,7 +86,8 @@ class ZipExtractor(Extractor):
     supported_extensions = ['.zip']
 
     def extract(self):
-        destination = self.strip_extension(self.filename, '.zip')
+        destination = '{}{}'.format(
+            self.destination, self.strip_extension(self.filename, '.zip'))
         with zipfile.ZipFile(self.filename, 'r') as archive:
             archive.extractall(path=destination)
         return destination
@@ -95,7 +98,8 @@ class RarExtractor(Extractor):
     supported_extensions = ['.rar']
 
     def extract(self):
-        destination = self.strip_extension(self.filename, '.rar')
+        destination = '{}{}'.format(
+            self.destination, self.strip_extension(self.filename, '.rar'))
         with rarfile.RarFile(self.filename, 'r') as archive:
             archive.extractall(path=destination)
         return destination
