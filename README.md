@@ -1,25 +1,26 @@
-# Kai
+# Kai [![Build Status](https://travis-ci.org/brian-bates/kai.svg?branch=master)](https://travis-ci.org/brian-bates/kai)
 
 A Python package that gives you the power to extract any compressed file using the same simple syntax.
 
-### Version
-v0.0.1
+## Usage
+```shell
+kai yourfile
+```
 
-### Installation
+## Version
+`v0.0.4`
+
+## Installation
 ```shell
 pip install kai
 ```
 
-### Contributing
+## Contributing
 Want to contribute? Great! Fork and submit a pull request!
 
 
-### Todos
+## Todos
 
  - Support binzip files
  - Support 7zip files
- - Support rar files
  - Setup Versioneer
- - Setup Travis CI
- - Add requirements.txt
- - Setup Unit Tests

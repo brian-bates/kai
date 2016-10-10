@@ -6,13 +6,13 @@ description = (
 
 setup(
     name='kai',
-    version='0.0.1',
+    version='0.0.4',
     description=description,
     long_description=description,
     author='Brian Bates',
     author_email='brian@eccentricprototypes.com',
     url='http://github.com/brian-bates/kai',
-    install_requires=[],
+    install_requires=['rarfile'],
     packages=find_packages(),
     entry_points={'console_scripts': ['kai = kai.kai:main']}
 )

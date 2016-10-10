@@ -1,10 +1,9 @@
 """A bunch of extractors go here"""
 
-import os
+import six
+import rarfile
 import tarfile
 import zipfile
-import rarfile
-
 
 
 class ExtractorError(Exception):
@@ -34,9 +33,8 @@ class ExtractorFactory(object):
             raise ExtractorError('File extension not supported.')
 
 
+@six.add_metaclass(ExtractorRegistry)
 class Extractor(object):
-    __metaclass__ = ExtractorRegistry
-
     supported_extensions = []
 
     def __init__(self, filename, destination='.'):
@@ -71,7 +69,7 @@ class TarExtractor(Extractor):
             '.tar.bz2': 'r:bz2',
             '.tbz': 'r:bz2',
             '.tar': 'r:'}
-        for file_extension, mode in mode_map.iteritems():
+        for file_extension, mode in mode_map.items():
             if self.filename.endswith(file_extension):
                 destination = '{}{}'.format(
                     self.destination,

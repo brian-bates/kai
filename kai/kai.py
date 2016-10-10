@@ -1,6 +1,9 @@
+from __future__ import absolute_import
+from __future__ import print_function
+
 import argparse
 
-from extractors import ExtractorFactory
+from .extractors import ExtractorFactory
 
 
 def extract(filename, destination='.'):
@@ -28,8 +31,7 @@ def main():
     """
     args = parse_arguments()
     destination = extract(args.filename, args.destination)
-    print 'Contents extracted to {}'.format(destination)
-
+    print('Contents extracted to {}'.format(destination))
 
 if __name__ == '__main__':
     main()

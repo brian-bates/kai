@@ -1,0 +1,29 @@
+language: python
+python:
+- '2.7'
+- '3.5'
+install:
+- pip install . behave nose flake8
+script:
+- flake8
+- behave tests/features/
+deploy:
+- provider: pypi
+  user: brian-bates
+  distributions: sdist bdist_wheel
+  password:
+    secure: Zl+6+CPTgggn96WT3LtTCYapAbEr64zasRhPIAun+8HnQQdtgTVAvkUPe/coooQEgY1+k7NSnVLpVWtOfuafzb5+ndb04N+flhEygHuJmKGKPIwlY/otUUsFHixTxLpQ0kdaXUzGt72SpSpr1BJ/jg23HkjqfnvXYo3BN+u6EY1BVFiiv2lhl0lJWzmgF7ykDVw+/I77LV2CSBTjk4RgSuthOxc5UOHmb3PrrOqIydZjuHdZl2jSc9X/V00EnL5IB+DF3KRaDYw7lUeXRYeB+sViiWu3ZlLOTP2j7mAZNQG/HymeYmEy3EbWMlT+OSTY9K057xkmi3g+tDPx3jH0628+NJaPJlmGBYXYtxZwTvPDZn60RG/+hoijUYrs6X7HP2oPzUSWK1xuGgifTW/xJESbJms+rLrnSfJOJ1vmAvOotbNF2GV5gxMp5Dt1F6Vel05NR2nQ/0/A5pw7Ls5/+DMPQ/HXUYsy/Hnueg4w/iAvjGDXv7LTVrjOwDZewokfab8ujLkz+SXFv0pzfUapNWOTO6WG+nf3KSJZ0277IJ38ZkHPAfy+K9NWV+sxHWrB2P0EO1CyPkDdQdsBMZjrJ05jVIVAfGrqMrprIvPw5pTPQxt4xw1FhsZ/TpdEvFjqhSp/4AE5OYYxPEq7iaXn6uIpRrMy4+h7wD1WC62VWxo=
+  on:
+    branch: master
+    tags: true
+    condition: $TRAVIS_PYTHON_VERSION = "2.7"
+- provider: pypi
+  server: https://testpypi.python.org/pypi
+  user: brian-bates
+  distributions: sdist bdist_wheel
+  password:
+    secure: Zl+6+CPTgggn96WT3LtTCYapAbEr64zasRhPIAun+8HnQQdtgTVAvkUPe/coooQEgY1+k7NSnVLpVWtOfuafzb5+ndb04N+flhEygHuJmKGKPIwlY/otUUsFHixTxLpQ0kdaXUzGt72SpSpr1BJ/jg23HkjqfnvXYo3BN+u6EY1BVFiiv2lhl0lJWzmgF7ykDVw+/I77LV2CSBTjk4RgSuthOxc5UOHmb3PrrOqIydZjuHdZl2jSc9X/V00EnL5IB+DF3KRaDYw7lUeXRYeB+sViiWu3ZlLOTP2j7mAZNQG/HymeYmEy3EbWMlT+OSTY9K057xkmi3g+tDPx3jH0628+NJaPJlmGBYXYtxZwTvPDZn60RG/+hoijUYrs6X7HP2oPzUSWK1xuGgifTW/xJESbJms+rLrnSfJOJ1vmAvOotbNF2GV5gxMp5Dt1F6Vel05NR2nQ/0/A5pw7Ls5/+DMPQ/HXUYsy/Hnueg4w/iAvjGDXv7LTVrjOwDZewokfab8ujLkz+SXFv0pzfUapNWOTO6WG+nf3KSJZ0277IJ38ZkHPAfy+K9NWV+sxHWrB2P0EO1CyPkDdQdsBMZjrJ05jVIVAfGrqMrprIvPw5pTPQxt4xw1FhsZ/TpdEvFjqhSp/4AE5OYYxPEq7iaXn6uIpRrMy4+h7wD1WC62VWxo=
+  on:
+    branch: master
+    tags: true
+    condition: $TRAVIS_PYTHON_VERSION = "2.7"
