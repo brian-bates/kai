@@ -1,10 +1,11 @@
-# Kai [![Build Status](https://travis-ci.org/brian-bates/kai.svg?branch=master)](https://travis-ci.org/brian-bates/kai)
+![Kai Logo](media/logo.png)
+# [![Build Status](https://travis-ci.org/brian-bates/kai.svg?branch=master)](https://travis-ci.org/brian-bates/kai)
 
 A Python package that gives you the power to extract any compressed file using the same simple syntax.
 
 ## Usage
 ```shell
-kai yourfile
+$ kai yourfile
 ```
 
 ## Version
@@ -12,7 +13,7 @@ kai yourfile
 
 ## Installation
 ```shell
-pip install kai
+$ pip install kai
 ```
 
 ## Contributing
