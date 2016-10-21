@@ -3,15 +3,13 @@
 
 A Python package that gives you the power to extract any compressed file using the same simple syntax.
 
+![Kai Demo](media/demo.gif)
+
 ## Usage
-```shell
-$ kai yourfile
-```
+`$ kai yourfile.tar`
 
 ## Installation
-```shell
-$ pip install kai
-```
+`$ pip install kai`
 
 ## Contributing
 Want to contribute? Great! Fork and submit a pull request!
