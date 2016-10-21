@@ -80,10 +80,8 @@ def step_invoke_kai(context):
 
 @then(u'the file is extracted into the specified directory')
 def step_verify_contents(context):
-    extracted_files = os.listdir(context.extracted_dir)
-    for filename in extracted_files:
+    for filename, expected in context.expected_hash.items():
         path = os.path.join(context.extracted_dir, filename)
-        expected = context.expected_hash[filename]
         actual = compute_hash(path)
         assert expected == actual, (
             'Failure: Extracted files are different:'

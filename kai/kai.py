@@ -7,17 +7,13 @@ from .extractors import ExtractorFactory
 
 
 def extract(filename, destination='.'):
-    """
-    Attempts to extract the given archive to the given destination
-    """
+    """Attempts to extract the given archive to the given destination"""
     extractor = ExtractorFactory.create(filename, destination)
     return extractor.extract()
 
 
 def parse_arguments():
-    """
-    Create a custom command line parser and return the arguments
-    """
+    """Create a custom command line parser and return the arguments"""
     parser = argparse.ArgumentParser(description="Easily extract anything")
     parser.add_argument('filename', help='File to extract')
     parser.add_argument('destination', nargs='?', default='.',
@@ -26,12 +22,9 @@ def parse_arguments():
 
 
 def main():
-    """
-    Parses command line aruments and extracts a given archive accordingly
-    """
+    """Parses command line aruments and extracts a given archive"""
     args = parse_arguments()
-    destination = extract(args.filename, args.destination)
-    print('Contents extracted to {}'.format(destination))
+    extract(args.filename, args.destination)
 
 if __name__ == '__main__':
     main()

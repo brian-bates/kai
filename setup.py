@@ -6,7 +6,7 @@ description = (
 
 setup(
     name='kai',
-    version='0.0.5',
+    version='0.0.6',
     description=description,
     long_description=description,
     author='Brian Bates',

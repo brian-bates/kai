@@ -9,4 +9,4 @@ def before_all(context):
 
 def after_all(context):
     """Remove the directory after the tests are complete"""
-    shutil.rmtree(context.test_dir)
+    # shutil.rmtree(context.test_dir)

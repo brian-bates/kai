@@ -44,24 +44,22 @@ class Extractor(object):
 
     @classmethod
     def supports(cls, filename):
-        """
-        Returns True if the extractor supports the given file
-        """
+        """Returns True if the extractor supports the given file"""
         for supported_extension in cls.supported_extensions:
             if filename.endswith(supported_extension):
                 return True
         return False
 
-    def extract(self):
-        raise NotImplementedError()
-
     @staticmethod
     def strip_extension(full_path, extension):
         return os.path.basename(full_path[:-len(extension)])
 
+    def extract(self):
+        raise NotImplementedError()
+
 
 class TarExtractor(Extractor):
-    supported_extensions = ['tar', 'tar.gz', 'tgz', 'tar.bz2', 'tbz']
+    supported_extensions = ['.tar', '.tar.gz', '.tgz', '.tar.bz2', '.tbz']
 
     def extract(self):
         mode_map = {
@@ -72,12 +70,9 @@ class TarExtractor(Extractor):
             '.tar': 'r:'}
         for file_extension, mode in mode_map.items():
             if self.filename.endswith(file_extension):
-                destination = '{}{}'.format(
-                    self.destination,
-                    self.strip_extension(self.filename, file_extension))
                 with tarfile.open(self.filename, mode) as archive:
-                    archive.extractall(path=destination)
-                return destination
+                    archive.extractall(path=self.destination)
+                return self.destination
         raise ExtractorError(
             'Failed to extract {} as tar file.'.format(self.filename))
 
@@ -86,20 +81,16 @@ class ZipExtractor(Extractor):
     supported_extensions = ['.zip']
 
     def extract(self):
-        destination = '{}{}'.format(
-            self.destination, self.strip_extension(self.filename, '.zip'))
         with zipfile.ZipFile(self.filename, 'r') as archive:
-            archive.extractall(path=destination)
-        return destination
+            archive.extractall(path=self.destination)
+        return self.destination
 
 
 class RarExtractor(Extractor):
-    """ Extracting RAR file """
+    """Extracting RAR file"""
     supported_extensions = ['.rar']
 
     def extract(self):
-        destination = '{}{}'.format(
-            self.destination, self.strip_extension(self.filename, '.rar'))
         with rarfile.RarFile(self.filename, 'r') as archive:
-            archive.extractall(path=destination)
-        return destination
+            archive.extractall(path=self.destination)
+        return self.destination
