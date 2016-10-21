@@ -8,9 +8,6 @@ A Python package that gives you the power to extract any compressed file using t
 $ kai yourfile
 ```
 
-## Version
-`v0.0.6`
-
 ## Installation
 ```shell
 $ pip install kai
@@ -24,4 +21,3 @@ Want to contribute? Great! Fork and submit a pull request!
 
  - Support binzip files
  - Support 7zip files
- - Setup Versioneer
