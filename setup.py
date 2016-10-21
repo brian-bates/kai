@@ -1,4 +1,5 @@
 from setuptools import setup, find_packages
+import versioneer
 
 description = (
     'A Python package that gives you the power to extract '
@@ -6,7 +7,8 @@ description = (
 
 setup(
     name='kai',
-    version='0.0.6',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description=description,
     long_description=description,
     author='Brian Bates',
