@@ -4,3 +4,4 @@
 # Contributors
 - [Marcus Medley](https://github.com/mdmedley)
 - [Eli Uriegas](https://github.com/seemethere)
+- [Maryam Ghanizadeh](https://github.com/maloochpich)
