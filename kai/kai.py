@@ -26,5 +26,6 @@ def main():
     args = parse_arguments()
     extract(args.filename, args.destination)
 
+
 if __name__ == '__main__':
     main()
